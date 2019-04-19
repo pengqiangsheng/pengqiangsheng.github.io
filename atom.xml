@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aboutme.ink/"/>
-  <updated>2019-04-19T10:38:38.077Z</updated>
+  <updated>2019-04-19T10:58:49.933Z</updated>
   <id>http://aboutme.ink/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://aboutme.ink/2019/04/19/%E5%85%B3%E4%BA%8Ephp%E6%89%A7%E8%A1%8Cshell%E5%91%BD%E4%BB%A4%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%93%E4%BC%9A/"/>
     <id>http://aboutme.ink/2019/04/19/关于php执行shell命令的一些体会/</id>
     <published>2019-04-19T10:21:29.000Z</published>
-    <updated>2019-04-19T10:38:38.077Z</updated>
+    <updated>2019-04-19T10:58:49.933Z</updated>
     
     <content type="html"><![CDATA[<h1 id="关于php执行shell命令不得不提的一些东西"><a href="#关于php执行shell命令不得不提的一些东西" class="headerlink" title="关于php执行shell命令不得不提的一些东西"></a>关于php执行shell命令不得不提的一些东西</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这几天刚新买了一台阿里云香港的轻量应用服务器<br><img src="/2019/04/19/关于php执行shell命令的一些体会/1.png" alt=""><br>价钱还不错，24CNY一月，30Mbs带宽，1024G流量每月。<br>这是我的推荐码的入口<a href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=hp167aqc" target="_blank" rel="noopener">阿里云服务器入口</a><br>咳咳。。。拉回正题，我就开始配了一个lnmp，然后搭了一个docker下的gogs，然后搞了一个webhooks钩子。<br>之前我那台华东2的服务器配的是lamp+docker+gogs，可以自动部署代码上线。所以按照之前的步骤，我一步一步的走啊走啊，然后神奇的发现我的php执行不了shell脚本。<br>然后我各种度娘，google之类，发现说是php.ini里面有个字段叫做disable_funtions把php可以执行的shell函数都禁掉了，只要删掉想要的函数，就可以执行了。<br>之后我打开我的php.ini，然后找啊找，仍是没找到，然后我把这个php.ini整个内容复制到我的win10的word里面，查找这个字段，还是找不到。然后又去百度，然后搜啊搜，找啊找。搞了5、6个小时吧。<br>我都要崩溃了。后来把，我去群里问了个大神，大神一顿操作噼里啪啦，然后说让我把ip给他，他登入我服务器帮我找原因，3秒钟后，大神在php.ini的305行找到了这个字段。<br>顿时，我无语了，我找了这么久都没找到。哎。。懵逼的一天。<br><img src="/2019/04/19/关于php执行shell命令的一些体会/2.png" alt=""><br>然后我把shell_exec()从监狱里释放出来，然后在我的领地上，使用这个魔法，成功了，可以执行脚本了。<br>然后就是要给www提升一下权限，让它可以代我去执行各种骚操作<br><img src="/2019/04/19/关于php执行shell命令的一些体会/3.png" alt=""><br>具体整个自动部署的教程链接在这里–&gt;<a href="http://gitku.cn:8083/" target="_blank" rel="noopener">自动部署</a></p><h3 id="骚啊骚-搞了我一天"><a href="#骚啊骚-搞了我一天" class="headerlink" title="骚啊骚 搞了我一天"></a>骚啊骚 搞了我一天</h3><p><img src="/2019/04/19/关于php执行shell命令的一些体会/huanhu.gif" alt=""></p>]]></content>
     
@@ -34,7 +34,7 @@
     
     </summary>
     
-      <category term="Linux,php" scheme="http://aboutme.ink/categories/Linux-php/"/>
+      <category term="php" scheme="http://aboutme.ink/categories/php/"/>
     
     
       <category term="CentOs" scheme="http://aboutme.ink/tags/CentOs/"/>
