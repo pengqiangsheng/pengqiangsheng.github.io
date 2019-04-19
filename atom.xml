@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>知与南</title>
+  <title>知与南 AboutMe.ink</title>
   
-  <subtitle>分享知识，共享信息</subtitle>
+  <subtitle>叩首问路,码梦为生</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aboutme.ink/"/>
@@ -93,9 +93,9 @@
       <category term="hexo" scheme="http://aboutme.ink/categories/hexo/"/>
     
     
-      <category term="github" scheme="http://aboutme.ink/tags/github/"/>
-    
       <category term="hexo" scheme="http://aboutme.ink/tags/hexo/"/>
+    
+      <category term="github" scheme="http://aboutme.ink/tags/github/"/>
     
   </entry>
   
