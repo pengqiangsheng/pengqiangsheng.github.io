@@ -4,8 +4,34 @@
 
     
   <url>
+    <loc>http://aboutme.ink/2019/04/19/%E5%85%B3%E4%BA%8Ephp%E6%89%A7%E8%A1%8Cshell%E5%91%BD%E4%BB%A4%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%93%E4%BC%9A/</loc>
+    <lastmod>2019-04-19T10:38:38.077Z</lastmod>
+    <data>
+        <display>
+        <title>关于php执行shell命令的一些体会</title>
+        <pubTime>2019-04-19T10:21:29.000Z</pubTime>
+        
+        <tag>CentOs</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>php</tag>
+         
+        <tag>shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux,php" url="http://aboutme.ink/categories/Linux-php/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://aboutme.ink/2019/04/19/Centos-cp-%E5%8E%BB%E6%8E%89%E8%A6%86%E7%9B%96%E6%8F%90%E9%86%92/</loc>
-    <lastmod>2019-04-19T10:18:45.400Z</lastmod>
+    <lastmod>2019-04-19T10:21:00.512Z</lastmod>
     <data>
         <display>
         <title>CentOs cp 去掉覆盖提醒</title>

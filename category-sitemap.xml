@@ -29,7 +29,14 @@
 
     <url>
         <loc>http://aboutme.ink/categories/Linux/</loc>
-        <lastmod>2019-04-19T10:18:45.400Z</lastmod>
+        <lastmod>2019-04-19T10:21:00.512Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://aboutme.ink/categories/Linux-php/</loc>
+        <lastmod>2019-04-19T10:38:38.077Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

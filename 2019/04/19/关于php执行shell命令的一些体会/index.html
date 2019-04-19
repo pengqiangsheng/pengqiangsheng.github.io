@@ -65,7 +65,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CentOs,Linux,php,shell," />
 
 
 
@@ -78,16 +78,23 @@
 
 
 
-<meta name="description" content="知与南的博客，分享决定技术的高低，学习拉开技术的差距">
-<meta property="og:type" content="website">
-<meta property="og:title" content="知与南 AboutMe.ink">
-<meta property="og:url" content="http://aboutme.ink/archives/2018/08/index.html">
+<meta name="description" content="关于php执行shell命令不得不提的一些东西前言这几天刚新买了一台阿里云香港的轻量应用服务器价钱还不错，24CNY一月，30Mbs带宽，1024G流量每月。这是我的推荐码的入口阿里云服务器入口咳咳。。。拉回正题，我就开始配了一个lnmp，然后搭了一个docker下的gogs，然后搞了一个webhooks钩子。之前我那台华东2的服务器配的是lamp+docker+gogs，可以自动部署代码上线。所">
+<meta name="keywords" content="CentOs,Linux,php,shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于php执行shell命令的一些体会">
+<meta property="og:url" content="http://aboutme.ink/2019/04/19/关于php执行shell命令的一些体会/index.html">
 <meta property="og:site_name" content="知与南 AboutMe.ink">
-<meta property="og:description" content="知与南的博客，分享决定技术的高低，学习拉开技术的差距">
+<meta property="og:description" content="关于php执行shell命令不得不提的一些东西前言这几天刚新买了一台阿里云香港的轻量应用服务器价钱还不错，24CNY一月，30Mbs带宽，1024G流量每月。这是我的推荐码的入口阿里云服务器入口咳咳。。。拉回正题，我就开始配了一个lnmp，然后搭了一个docker下的gogs，然后搞了一个webhooks钩子。之前我那台华东2的服务器配的是lamp+docker+gogs，可以自动部署代码上线。所">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://aboutme.ink/2019/04/19/关于php执行shell命令的一些体会/1.png">
+<meta property="og:image" content="http://aboutme.ink/2019/04/19/关于php执行shell命令的一些体会/2.png">
+<meta property="og:image" content="http://aboutme.ink/2019/04/19/关于php执行shell命令的一些体会/3.png">
+<meta property="og:image" content="http://aboutme.ink/2019/04/19/关于php执行shell命令的一些体会/huanhu.gif">
+<meta property="og:updated_time" content="2019-04-19T10:38:38.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="知与南 AboutMe.ink">
-<meta name="twitter:description" content="知与南的博客，分享决定技术的高低，学习拉开技术的差距">
+<meta name="twitter:title" content="关于php执行shell命令的一些体会">
+<meta name="twitter:description" content="关于php执行shell命令不得不提的一些东西前言这几天刚新买了一台阿里云香港的轻量应用服务器价钱还不错，24CNY一月，30Mbs带宽，1024G流量每月。这是我的推荐码的入口阿里云服务器入口咳咳。。。拉回正题，我就开始配了一个lnmp，然后搭了一个docker下的gogs，然后搞了一个webhooks钩子。之前我那台华东2的服务器配的是lamp+docker+gogs，可以自动部署代码上线。所">
+<meta name="twitter:image" content="http://aboutme.ink/2019/04/19/关于php执行shell命令的一些体会/1.png">
 
 
 
@@ -117,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://aboutme.ink/archives/2018/08/"/>
+  <link rel="canonical" href="http://aboutme.ink/2019/04/19/关于php执行shell命令的一些体会/"/>
 
 
 
 
 
-  <title>归档 | 知与南 AboutMe.ink</title>
+  <title>关于php执行shell命令的一些体会 | 知与南 AboutMe.ink</title>
   
 
 
@@ -151,7 +158,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
      
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -272,185 +279,192 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://aboutme.ink/2019/04/19/关于php执行shell命令的一些体会/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="知与南">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/13.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知与南 AboutMe.ink">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">关于php执行shell命令的一些体会</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T18:21:29+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 6 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-php/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux,php</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/24/经典游戏贪吃蛇Snake/" itemprop="url">
-              
-                <span itemprop="name">经典游戏贪吃蛇Snake</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-24T13:42:31+08:00"
-              content="2018-08-24" >
-          08-24
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/20/用hexo和github搭建个人博客小站全攻略/" itemprop="url">
-              
-                <span itemprop="name">用hexo和github搭建个人博客小站全攻略</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-20T08:58:52+08:00"
-              content="2018-08-20" >
-          08-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/17/hexo生成博文插入图片的办法/" itemprop="url">
-              
-                <span itemprop="name">hexo生成博文插入图片的办法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-17T17:43:48+08:00"
-              content="2018-08-17" >
-          08-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="关于php执行shell命令不得不提的一些东西"><a href="#关于php执行shell命令不得不提的一些东西" class="headerlink" title="关于php执行shell命令不得不提的一些东西"></a>关于php执行shell命令不得不提的一些东西</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这几天刚新买了一台阿里云香港的轻量应用服务器<br><img src="/2019/04/19/关于php执行shell命令的一些体会/1.png" alt=""><br>价钱还不错，24CNY一月，30Mbs带宽，1024G流量每月。<br>这是我的推荐码的入口<a href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=hp167aqc" target="_blank" rel="noopener">阿里云服务器入口</a><br>咳咳。。。拉回正题，我就开始配了一个lnmp，然后搭了一个docker下的gogs，然后搞了一个webhooks钩子。<br>之前我那台华东2的服务器配的是lamp+docker+gogs，可以自动部署代码上线。所以按照之前的步骤，我一步一步的走啊走啊，然后神奇的发现我的php执行不了shell脚本。<br>然后我各种度娘，google之类，发现说是php.ini里面有个字段叫做disable_funtions把php可以执行的shell函数都禁掉了，只要删掉想要的函数，就可以执行了。<br>之后我打开我的php.ini，然后找啊找，仍是没找到，然后我把这个php.ini整个内容复制到我的win10的word里面，查找这个字段，还是找不到。然后又去百度，然后搜啊搜，找啊找。搞了5、6个小时吧。<br>我都要崩溃了。后来把，我去群里问了个大神，大神一顿操作噼里啪啦，然后说让我把ip给他，他登入我服务器帮我找原因，3秒钟后，大神在php.ini的305行找到了这个字段。<br>顿时，我无语了，我找了这么久都没找到。哎。。懵逼的一天。<br><img src="/2019/04/19/关于php执行shell命令的一些体会/2.png" alt=""><br>然后我把shell_exec()从监狱里释放出来，然后在我的领地上，使用这个魔法，成功了，可以执行脚本了。<br>然后就是要给www提升一下权限，让它可以代我去执行各种骚操作<br><img src="/2019/04/19/关于php执行shell命令的一些体会/3.png" alt=""><br>具体整个自动部署的教程链接在这里–&gt;<a href="http://gitku.cn:8083/" target="_blank" rel="noopener">自动部署</a></p>
+<h3 id="骚啊骚-搞了我一天"><a href="#骚啊骚-搞了我一天" class="headerlink" title="骚啊骚 搞了我一天"></a>骚啊骚 搞了我一天</h3><p><img src="/2019/04/19/关于php执行shell命令的一些体会/huanhu.gif" alt=""></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/17/github更新项目/" itemprop="url">
-              
-                <span itemprop="name">github更新项目</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-17T16:19:41+08:00"
-              content="2018-08-17" >
-          08-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+          
+      <div align="center">   
+        <div class="copyright">
+          <p><span>
+          <b>本文地址：</b><a href="/2019/04/19/关于php执行shell命令的一些体会/" title="关于php执行shell命令的一些体会">http://aboutme.ink/2019/04/19/关于php执行shell命令的一些体会/</a><br/><b>转载请注明出处，谢谢！</b>
+          </span></p>
+        </div> 
+      </div>
+      <div style="text-align:center;color: #ccc;font-size:14px;">
+      ---------------- The End ----------------
+      </div>
+    
+
+
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CentOs/" rel="tag"><i class="fa fa-tag"></i> CentOs</a>
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+          
+            <a href="/tags/shell/" rel="tag"><i class="fa fa-tag"></i> shell</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/19/Centos-cp-去掉覆盖提醒/" rel="next" title="CentOs cp 去掉覆盖提醒">
+                <i class="fa fa-chevron-left"></i> CentOs cp 去掉覆盖提醒
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -459,6 +473,10 @@
           
 
  
+
+  
+
+
 
         </div>
          
@@ -478,8 +496,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -592,6 +619,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于php执行shell命令不得不提的一些东西"><span class="nav-number">1.</span> <span class="nav-text">关于php执行shell命令不得不提的一些东西</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#骚啊骚-搞了我一天"><span class="nav-number">1.1.1.</span> <span class="nav-text">骚啊骚 搞了我一天</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -719,7 +762,11 @@
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
 
-  
+ 
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+ 
 
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
