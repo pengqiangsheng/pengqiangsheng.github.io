@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://aboutme.ink/2019/04/19/Centos-cp-%E5%8E%BB%E6%8E%89%E8%A6%86%E7%9B%96%E6%8F%90%E9%86%92/</loc>
+    <lastmod>2019-04-19T02:26:05.909Z</lastmod>
+    <data>
+        <display>
+        <title>CentOs cp 去掉覆盖提醒</title>
+        <pubTime>2019-04-19T02:14:50.000Z</pubTime>
+        
+        <tag>CentOs</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://aboutme.ink/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://aboutme.ink/2018/08/24/%E7%BB%8F%E5%85%B8%E6%B8%B8%E6%88%8F%E8%B4%AA%E5%90%83%E8%9B%87Snake/</loc>
+    <lastmod>2019-04-13T01:13:58.306Z</lastmod>
+    <data>
+        <display>
+        <title>经典游戏贪吃蛇Snake</title>
+        <pubTime>2018-08-24T05:42:31.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://aboutme.ink/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://aboutme.ink/2018/08/20/%E7%94%A8hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E7%AB%99%E5%85%A8%E6%94%BB%E7%95%A5/</loc>
+    <lastmod>2019-04-13T01:13:58.293Z</lastmod>
+    <data>
+        <display>
+        <title>用hexo和github搭建个人博客小站全攻略</title>
+        <pubTime>2018-08-20T00:58:52.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://aboutme.ink/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://aboutme.ink/2018/08/17/hexo%E7%94%9F%E6%88%90%E5%8D%9A%E6%96%87%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E5%8A%9E%E6%B3%95/</loc>
+    <lastmod>2019-04-13T01:13:58.292Z</lastmod>
+    <data>
+        <display>
+        <title>hexo生成博文插入图片的办法</title>
+        <pubTime>2018-08-17T09:43:48.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://aboutme.ink/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://aboutme.ink/2018/08/17/github%E6%9B%B4%E6%96%B0%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2019-04-13T01:13:58.288Z</lastmod>
+    <data>
+        <display>
+        <title>github更新项目</title>
+        <pubTime>2018-08-17T08:19:41.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="github" url="http://aboutme.ink/categories/github/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>

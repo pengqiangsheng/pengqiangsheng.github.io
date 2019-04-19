@@ -1,0 +1,1371 @@
+<!DOCTYPE html>    
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+
+<head>
+  <meta name="google-site-verification" content="enOIbDP_rOakODkdpYznnwBnTD_Xh_KWFA2kPbX3sdY">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/love.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/love.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="github,javascript," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="知与南" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="H5小游戏100例: 贪吃蛇贪吃蛇的经典玩法有两种：  积分闯关 一吃到底  第一种是笔者小时候在掌上游戏机最先体验到的（不小心暴露了年龄），具体玩法是蛇吃完一定数量的食物后就通关，通关后速度会加快；第二种是诺基亚在1997年在其自家手机上安装的游戏，它的玩法是吃到没食物为止。笔者要实现的就是第二种玩法。 MVC设计模式基于贪吃蛇的经典，笔者在实现它时也使用一种经典的设计模型：MVC（即：Mode">
+<meta name="keywords" content="github,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典游戏贪吃蛇Snake">
+<meta property="og:url" content="http://aboutme.ink/2018/08/24/经典游戏贪吃蛇Snake/index.html">
+<meta property="og:site_name" content="知与南">
+<meta property="og:description" content="H5小游戏100例: 贪吃蛇贪吃蛇的经典玩法有两种：  积分闯关 一吃到底  第一种是笔者小时候在掌上游戏机最先体验到的（不小心暴露了年龄），具体玩法是蛇吃完一定数量的食物后就通关，通关后速度会加快；第二种是诺基亚在1997年在其自家手机上安装的游戏，它的玩法是吃到没食物为止。笔者要实现的就是第二种玩法。 MVC设计模式基于贪吃蛇的经典，笔者在实现它时也使用一种经典的设计模型：MVC（即：Mode">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xv39r.com1.z0.glb.clouddn.com/20170922_nokia.png?v=1">
+<meta property="og:image" content="http://7xv39r.com1.z0.glb.clouddn.com/20170922_snake.gif">
+<meta property="og:image" content="http://7xv39r.com1.z0.glb.clouddn.com/20170923_before_after.png">
+<meta property="og:image" content="http://7xv39r.com1.z0.glb.clouddn.com/20170923_qr.png">
+<meta property="og:updated_time" content="2019-04-13T01:13:58.306Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典游戏贪吃蛇Snake">
+<meta name="twitter:description" content="H5小游戏100例: 贪吃蛇贪吃蛇的经典玩法有两种：  积分闯关 一吃到底  第一种是笔者小时候在掌上游戏机最先体验到的（不小心暴露了年龄），具体玩法是蛇吃完一定数量的食物后就通关，通关后速度会加快；第二种是诺基亚在1997年在其自家手机上安装的游戏，它的玩法是吃到没食物为止。笔者要实现的就是第二种玩法。 MVC设计模式基于贪吃蛇的经典，笔者在实现它时也使用一种经典的设计模型：MVC（即：Mode">
+<meta name="twitter:image" content="http://7xv39r.com1.z0.glb.clouddn.com/20170922_nokia.png?v=1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://aboutme.ink/2018/08/24/经典游戏贪吃蛇Snake/"/>
+
+
+
+
+
+  <title>经典游戏贪吃蛇Snake | 知与南</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9df86b7403dc0df2e56ff1b5a3932d59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <!-- gitalk评论插件css -->
+  <link rel="stylesheet"  href="/js/src/gitalk.css">
+  <!-- 看板娘插件css -->
+  <link rel="stylesheet" href="/js/live2d/css/live2d.css" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+     
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">知与南</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">分享知识，共享信息</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+    <div id="landlord">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+    <div class="hide-button">隐藏</div>
+</div>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://aboutme.ink/2018/08/24/经典游戏贪吃蛇Snake/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="知与南">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/13.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知与南">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">经典游戏贪吃蛇Snake</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T13:42:31+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="H5小游戏100例-贪吃蛇"><a href="#H5小游戏100例-贪吃蛇" class="headerlink" title="H5小游戏100例: 贪吃蛇"></a>H5小游戏100例: 贪吃蛇</h1><p>贪吃蛇的经典玩法有两种：</p>
+<ol>
+<li>积分闯关</li>
+<li>一吃到底</li>
+</ol>
+<p>第一种是笔者小时候在掌上游戏机最先体验到的（不小心暴露了年龄），具体玩法是蛇吃完一定数量的食物后就通关，通关后速度会加快；第二种是诺基亚在1997年在其自家手机上安装的游戏，它的玩法是吃到没食物为止。笔者要实现的就是第二种玩法。</p>
+<h2 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h2><p>基于贪吃蛇的经典，笔者在实现它时也使用一种经典的设计模型：MVC（即：Model - View - Control）。游戏的各种状态与数据结构由 Model 来管理；View 用于显示 Model 的变化；用户与游戏的交互由 Control 完成（Control 提供各种游戏API接口）。</p>
+<p>Model 是游戏的核心也是本文的主要内容；View 会涉及到部分性能问题；Control 负责业务逻辑。 这样设计的好处是： Model完全独立，View 是 Model 的状态机，Model 与 View 都由 Control 来驱动。</p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>看一张贪吃蛇的经典图片。  </p>
+<p><img src="http://7xv39r.com1.z0.glb.clouddn.com/20170922_nokia.png?v=1" alt="诺基亚"></p>
+<p>贪吃蛇有四个关键的参与对象：</p>
+<ol>
+<li>蛇（snake）</li>
+<li>食物（food）</li>
+<li>墙（bounds）</li>
+<li>舞台（zone）</li>
+</ol>
+<p>舞台是一个 <code>m * n</code>  的矩阵（二维数组），矩阵的索引边界是舞台的墙，矩阵上的成员用于标记食物和蛇的位置。</p>
+<p>空舞台如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>食物（F）和蛇（S）出现在舞台上：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,F,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,S,S,S,S,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,S,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,S,S,S,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,S,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,S,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">	[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>由于操作二维数组不如一维数组方便，所以笔者使用的是一维数组， 如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">	<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line">	<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line">	<span class="number">0</span>,<span class="number">0</span>,F,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line">	<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,S,S,S,S,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line">	<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,S,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line">	<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,S,S,S,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line">	<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,S,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line">	<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,S,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line">	<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line">	<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>舞台矩阵上蛇与食物只是舞台对二者的映射，它们彼此都有独立的数据结构：</p>
+<ul>
+<li>蛇是一串坐标索引链表；</li>
+<li>食物是一个指向舞台坐标的索引值。</li>
+</ul>
+<h3 id="蛇的活动"><a href="#蛇的活动" class="headerlink" title="蛇的活动"></a>蛇的活动</h3><p>蛇的活动有三种，如下：</p>
+<ul>
+<li>移动（move）</li>
+<li>吃食（eat）</li>
+<li>碰撞（collision）</li>
+</ul>
+<h4 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h4><p>蛇在移动时，内部发生了什么变化？ </p>
+<p><img src="http://7xv39r.com1.z0.glb.clouddn.com/20170922_snake.gif" alt="蠕动"> </p>
+<p>蛇链表在一次移动过程中做了两件事：<strong>向表头插入一个新节点，同时剔除表尾一个旧节点</strong>。用一个数组来代表蛇链表，那么蛇的移动就是以下的伪代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">next</span>) </span>&#123;</span><br><span class="line">	snake.pop() &amp; snake.unshift(next); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>数组作为蛇链表合适吗？</strong><br>这是笔者最开始思考的问题，毕竟数组的 <code>unshift &amp; pop</code> 可以无缝表示蛇的移动。不过，方便不代表性能好，<code>unshift</code> 向数组插入元素的时间复杂度是 O(n)， <code>pop</code> 剔除数组尾元素的时间复杂度是 O(1)。</p>
+<p>蛇的移动是一个高频率的动作，如果一次动作的算法复杂度为 O(n) 并且蛇的长度比较大，那么游戏的性能会有问题。笔者想实现的贪吃蛇理论上讲是一条长蛇，所以笔者在本文章的回复是 —— <strong>数组不适合作为蛇链表</strong>。</p>
+<p><strong>蛇链表必须是真正的链表结构。</strong><br>链表删除或插入一个节点的时间复杂度为O(1)，用链表作为蛇链表的数据结构能提高游戏的性能。javascript 没有现成的链表结构，笔者写了一个叫 <a href="https://github.com/leeenx/es6-utils#chain" target="_blank" rel="noopener">Chain</a> 的链表类，<code>Chain</code> 提供了 <code>unshfit &amp; pop</code>。以下伪代码是创建一条蛇链表：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> snake = <span class="keyword">new</span> Chain();</span><br></pre></td></tr></table></figure>
+<p><em>由于篇幅问题这里就不介绍 <code>Chain</code> 是如何实现的，有兴趣的同学可以移步到: <a href="https://github.com/leeenx/es6-utils#chain" target="_blank" rel="noopener">https://github.com/leeenx/es6-utils#chain</a></em></p>
+<h4 id="吃食-amp-碰撞"><a href="#吃食-amp-碰撞" class="headerlink" title="吃食 &amp; 碰撞"></a>吃食 &amp; 碰撞</h4><p>「吃食」与「碰撞」区别在于吃食撞上了「食物」，碰撞撞上了「墙」。笔者认为「吃食」与「碰撞」属于蛇一次「移动」的三个可能结果的两个分支。蛇移动的三个可能结果是：「前进」、「吃食」和「碰撞」。</p>
+<p>回头看一下蛇移动的伪代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">next</span>) </span>&#123;</span><br><span class="line">	snake.pop() &amp; snake.unshift(next); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码中的 <code>next</code> 表示蛇头即将进入的格子的索引值，只有当这个格子是<code>0</code>时蛇才能「前进」，当这个格子是 <code>S</code> 表示「碰撞」自己，当这个格子是 <code>F</code>表示吃食。</p>
+<p><strong>好像少了撞墙？</strong><br>笔者在设计过程中，并没有把墙设计在舞台的矩阵中，而是通过索引出界的方式来表示撞墙。简单地说就是 <code>next === -1</code> 时表示出界和撞墙。</p>
+<p>以下伪代码表示蛇的整上活动过程：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B 表示撞墙</span></span><br><span class="line"><span class="keyword">let</span> cell = <span class="number">-1</span> === next ? B : zone[next]; </span><br><span class="line"><span class="keyword">switch</span>(cell) &#123;</span><br><span class="line">	<span class="comment">// 吃食</span></span><br><span class="line">	<span class="keyword">case</span> F: eat(); <span class="keyword">break</span>; </span><br><span class="line">	<span class="comment">// 撞到自己</span></span><br><span class="line">	<span class="keyword">case</span> S: collision(S); <span class="keyword">break</span>; </span><br><span class="line">	<span class="comment">// 撞墙</span></span><br><span class="line">	<span class="keyword">case</span> B: collision(B): <span class="keyword">break</span>; </span><br><span class="line">	<span class="comment">// 前进</span></span><br><span class="line">	<span class="keyword">default</span>: move; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="随机投食"><a href="#随机投食" class="headerlink" title="随机投食"></a>随机投食</h3><p>随机投食是指随机挑选舞台的一个索引值用于映射食物的位置。这似乎很简单，可以直接这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line">food = <span class="built_in">Math</span>.random(zone.length) &gt;&gt; <span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<p>如果考虑到投食的前提 —— 不与蛇身重叠，你会发现上面的随机代码并不能保证投食位置不与蛇身重叠。由于这个算法的安全性带有赌博性质，且把它称作「赌博算法」。为了保证投食的安全性，笔者把算法扩展了一下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">feed</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> index = <span class="built_in">Math</span>.random(zone.length) &gt;&gt; <span class="number">0</span>; </span><br><span class="line">	<span class="comment">// 当前位置是否被占用</span></span><br><span class="line">	<span class="keyword">return</span> zone[index] === S ? feed() : index; </span><br><span class="line">&#125;</span><br><span class="line">food = feed();</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码虽然在理论上可以保证投食的绝对安全，不过笔者把这个算法称作「不要命的赌徒算法」，因为上面的算法有致命的BUG —— 超长递归 or 死循环。</p>
+<p>为了解决上面的致命问题，笔者设计了下面的算法来做随机投食：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">feed</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 未被占用的空格数</span></span><br><span class="line">	<span class="keyword">let</span> len = zone.length - snake.length; </span><br><span class="line">	<span class="comment">// 无法投食</span></span><br><span class="line">	<span class="keyword">if</span>(len === <span class="number">0</span>) <span class="keyword">return</span> ; </span><br><span class="line">	<span class="comment">// zone的索引</span></span><br><span class="line">	<span class="keyword">let</span> index = <span class="number">0</span>, </span><br><span class="line">	<span class="comment">// 空格计数器</span></span><br><span class="line">	count = <span class="number">0</span>, </span><br><span class="line">	<span class="comment">// 第 rnd 个空格子是最终要投食的位置</span></span><br><span class="line">	rnd = <span class="built_in">Math</span>.random() * count &gt;&gt; <span class="number">0</span> + <span class="number">1</span>; </span><br><span class="line">	<span class="comment">// 累计空格数</span></span><br><span class="line">	<span class="keyword">while</span>(count !== rnd) &#123;</span><br><span class="line">		<span class="comment">// 当前格子为空，count总数增一</span></span><br><span class="line">		zone[index++] === <span class="number">0</span> &amp;&amp; ++count; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> index - <span class="number">1</span>; </span><br><span class="line">&#125;</span><br><span class="line">food = feed();</span><br></pre></td></tr></table></figure></p>
+<p>这个算法的平均复杂度为 O(n/2)。由于投食是一个低频操作，所以 O(n/2)的复杂度并不会带来任何性能问题。不过，笔者觉得这个算法的复杂度还是有点高了。回头看一下最开始的「赌博算法」，虽然「赌博算法」很不靠谱，但是它有一个优势 —— 时间复杂度为 O(1)。 </p>
+<p>「赌博算法」的靠谱概率 = (zone.length - snake.length) / zone.length。<code>snake.length</code> 是一个动态值，它的变化范围是：<code>0 ~ zone.length</code>。推导出「赌博算法」的平均靠谱概率是：</p>
+<blockquote>
+<p><strong>「赌博算法」平均靠谱概率 = 50%</strong></p>
+</blockquote>
+<p>看来「赌博算法」还是可以利用一下的。于是笔者重新设计了一个算法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bet</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> rnd = <span class="built_in">Math</span>.random() * zone.length &gt;&gt; <span class="number">0</span>; </span><br><span class="line">	<span class="keyword">return</span> zone[rnd] === <span class="number">0</span> ? rnd : <span class="number">-1</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">feed</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">food = bet(); </span><br><span class="line"><span class="keyword">if</span>(food === <span class="number">-1</span>) food = feed();</span><br></pre></td></tr></table></figure></p>
+<p>新算法的平均复杂度可以有效地降低到 O(n/4)，人生有时候需要点运气 : )。</p>
+<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><p>在 View 可以根据喜好选择一款游戏渲染引擎，笔者在 View 层选择了 <code>PIXI</code> 作为游戏游戏渲染引擎。</p>
+<p>View 的任务主要有两个：</p>
+<ol>
+<li>绘制游戏的界面；</li>
+<li>渲染 Model 里的各种数据结构</li>
+</ol>
+<p>也就是说 View 是使用渲染引擎还原设计稿的过程。本文的目的是介绍「贪吃蛇」的实现思路，如何使用一个渲染引擎不是本文讨论的范畴，笔者想介绍的是：「如何提高渲染的效率」。</p>
+<p>在 View 中显示 Model 的蛇可以简单地如以下伪代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 清空 View 上的蛇</span></span><br><span class="line">view.snake.clean(); </span><br><span class="line">model.snake.forEach(</span><br><span class="line">	(node) =&gt; &#123;</span><br><span class="line">		<span class="comment">// 创建 View 上的蛇节点</span></span><br><span class="line">		<span class="keyword">let</span> viewNode = createViewNode(node); </span><br><span class="line">		<span class="comment">// 并合一条新蛇</span></span><br><span class="line">		view.snake.push(viewNode); </span><br><span class="line">	&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>上面代码的时间复杂度是 O(n)。上面介绍过蛇的移动是一个高频的活动，我们要尽量避免高频率地运行 O(n) 的代码。来分析蛇的三种活动：「移动」，「吃食」，「碰撞」。</p>
+<p>首先，Model 发生了「碰撞」，View 应该是直接暂停渲染 Model 里的状态，游戏处在死亡状态，接下来的事由 Control 处理。</p>
+<p>Model 中的蛇（链表）在一次「移动」过程中做了两件事：<strong>向表头插入一个新节点，同时剔除表尾一个旧节点</strong>；蛇（链表）在一次「吃食」过程中只做一件事：<strong>向表头插入一个新节点</strong>。</p>
+<p><img src="http://7xv39r.com1.z0.glb.clouddn.com/20170923_before_after.png" alt="对比"> </p>
+<p>如果在 View 中对 Model 的蛇链表做差异化检查，View 只增量更新差异部分的话，算法的时间复杂度即可降低至 O(1) ~ O(2) 。以下是优化后的伪代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> snakeA = model.snake, snakeB = view.snake; </span><br><span class="line"><span class="comment">// 增量更新尾部</span></span><br><span class="line"><span class="keyword">while</span>(snakeB.length &lt;= snakeA.length) &#123; </span><br><span class="line">	headA = snakeA.next(); </span><br><span class="line">	<span class="comment">// 头节点匹配</span></span><br><span class="line">	<span class="keyword">if</span>(headA.data === headB.data) <span class="keyword">break</span>; </span><br><span class="line">	<span class="comment">// 不匹配</span></span><br><span class="line">	<span class="keyword">else</span> &#123; </span><br><span class="line">		<span class="comment">// 向snakeB插入头节点</span></span><br><span class="line">		<span class="keyword">if</span>(snakeA.HEAD === headA.index) &#123;</span><br><span class="line">			snakeB.unshift(headA.data); </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 向snakeB插入第二个节点</span></span><br><span class="line">		<span class="keyword">else</span> snakeB.insertAfter(<span class="number">0</span>, headA.data); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 增量更新头部 </span></span><br><span class="line"><span class="keyword">let</span> tailA = snakeA.last(), tailB; </span><br><span class="line"><span class="keyword">while</span>(snakeB.length !== <span class="number">0</span>) &#123; </span><br><span class="line">	tailB = snakeB.last(); </span><br><span class="line">	<span class="comment">// 尾节点匹配</span></span><br><span class="line">	<span class="keyword">if</span>(tailA.data === tailB.data) <span class="keyword">break</span>; </span><br><span class="line">	<span class="comment">// 不匹配</span></span><br><span class="line">	<span class="keyword">else</span> snakeB.pop(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Control"><a href="#Control" class="headerlink" title="Control"></a>Control</h2><p>Control 主要做 3 件事：</p>
+<ol>
+<li>游戏与用户的互动 </li>
+<li>驱动 Model </li>
+<li>同步 View 与 Model </li>
+</ol>
+<p>「游戏与用户的互动」是指向外提供游戏过程需要使用到的 APIs 与 各类事件。笔者规划的 APIs 如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">name</th>
+<th style="text-align:left">type</th>
+<th style="text-align:left">detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">init</td>
+<td style="text-align:left">method</td>
+<td style="text-align:left">初始化游戏</td>
+</tr>
+<tr>
+<td style="text-align:left">start</td>
+<td style="text-align:left">method</td>
+<td style="text-align:left">开始游戏</td>
+</tr>
+<tr>
+<td style="text-align:left">restart</td>
+<td style="text-align:left">method</td>
+<td style="text-align:left">重新开始游戏</td>
+</tr>
+<tr>
+<td style="text-align:left">pause</td>
+<td style="text-align:left">method</td>
+<td style="text-align:left">暂停</td>
+</tr>
+<tr>
+<td style="text-align:left">resume</td>
+<td style="text-align:left">method</td>
+<td style="text-align:left">恢复</td>
+</tr>
+<tr>
+<td style="text-align:left">turn</td>
+<td style="text-align:left">method</td>
+<td style="text-align:left">控制蛇的转向。如：turn(“left”)</td>
+</tr>
+<tr>
+<td style="text-align:left">destroy</td>
+<td style="text-align:left">method</td>
+<td style="text-align:left">销毁游戏</td>
+</tr>
+<tr>
+<td style="text-align:left">speed</td>
+<td style="text-align:left">property</td>
+<td style="text-align:left">蛇的移动速度</td>
+</tr>
+</tbody>
+</table>
+<p>事件如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">name</th>
+<th style="text-align:left">detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">countdown</td>
+<td style="text-align:left">倒时计</td>
+</tr>
+<tr>
+<td style="text-align:left">eat</td>
+<td style="text-align:left">吃到食物</td>
+</tr>
+<tr>
+<td style="text-align:left">before-eat</td>
+<td style="text-align:left">吃到食物前触发</td>
+</tr>
+<tr>
+<td style="text-align:left">gameover</td>
+<td style="text-align:left">游戏结束</td>
+</tr>
+</tbody>
+</table>
+<p>事件统一挂载在游戏实例下的 <code>event</code> 对象下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snake.event.on(<span class="string">"countdown"</span>, (time) =&gt; <span class="built_in">console</span>.log(<span class="string">"剩余时间："</span>, time));</span><br></pre></td></tr></table></figure></p>
+<p>「驱动 Model 」只做一件事 —— <strong>将 Model 的蛇的方向更新为用户指定的方向</strong>。<br>「同步 View 与 Model 」也比较简单，检查 Model 是否有更新，如果有更新通知 View 更新游戏界面。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本文转载自：<a href="https://github.com/leeenx/snake" target="_blank" rel="noopener">https://github.com/leeenx/snake</a></p>
+<p>下面是本文介绍的贪吃蛇的线上 <a href="https://leeenx.github.io/snake/src/snake.html" target="_blank" rel="noopener">DEMO</a> 的二维码： </p>
+<p><img src="http://7xv39r.com1.z0.glb.clouddn.com/20170923_qr.png" alt="demo"> </p>
+<p>游戏的源码托管在：<a href="https://github.com/leeenx/snake" target="_blank" rel="noopener">https://github.com/leeenx/snake</a></p>
+<p>感谢耐心阅读完本文章的读者。本文仅代表笔者的个人观点，如有不妥之处请不吝赐教。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+          
+      <div align="center">   
+        <div class="copyright">
+          <p><span>
+          <b>本文地址：</b><a href="/2018/08/24/经典游戏贪吃蛇Snake/" title="经典游戏贪吃蛇Snake">http://aboutme.ink/2018/08/24/经典游戏贪吃蛇Snake/</a><br/><b>转载请注明出处，谢谢！</b>
+          </span></p>
+        </div> 
+      </div>
+      <div style="text-align:center;color: #ccc;font-size:14px;">
+      ---------------- The End ----------------
+      </div>
+    
+
+
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/github/" rel="tag"><i class="fa fa-tag"></i> github</a>
+          
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/20/用hexo和github搭建个人博客小站全攻略/" rel="next" title="用hexo和github搭建个人博客小站全攻略">
+                <i class="fa fa-chevron-left"></i> 用hexo和github搭建个人博客小站全攻略
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/19/Centos-cp-去掉覆盖提醒/" rel="prev" title="CentOs cp 去掉覆盖提醒">
+                CentOs cp 去掉覆盖提醒 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+         
+          <div id="gitalk-container"></div>
+          
+
+ 
+
+  
+
+
+
+        </div>
+         
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/13.jpg"
+                alt="知与南" />
+            
+              <p class="site-author-name" itemprop="name">知与南</p>
+              <p class="site-description motion-element" itemprop="description">知与南的博客，分享决定技术的高低，学习拉开技术的差距</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/pengqiangsheng" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2945802136@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://git.aboutme.ink" title="GoGs" target="_blank">GoGs</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cloud.aboutme.ink" title="NextCloud" target="_blank">NextCloud</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gitee.com/redqueen" title="Gitee" target="_blank">Gitee</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://coding.net/u/pengqiangsheng" title="Coding" target="_blank">Coding</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#H5小游戏100例-贪吃蛇"><span class="nav-number">1.</span> <span class="nav-text">H5小游戏100例: 贪吃蛇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC设计模式"><span class="nav-number">1.1.</span> <span class="nav-text">MVC设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">1.2.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#蛇的活动"><span class="nav-number">1.2.1.</span> <span class="nav-text">蛇的活动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#移动"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#吃食-amp-碰撞"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">吃食 &amp; 碰撞</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机投食"><span class="nav-number">1.2.2.</span> <span class="nav-text">随机投食</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View"><span class="nav-number">1.3.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Control"><span class="nav-number">1.4.</span> <span class="nav-text">Control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">1.5.</span> <span class="nav-text">结语</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+ 
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">知与南</span>
+
+  
+</div>
+ 
+<!-- 统计时间 -->
+  <div>小南已经<span id="htmer_time"></span></div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+      </div>
+    </footer>
+    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i> 
+    </div>
+     
+  </div>
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+ 
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+ 
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+ 
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+ 
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+ 
+ 
+ 
+  
+ 
+ 
+ 
+
+  <!-- gitalk评论插件 -->
+  <script type="text/javascript" src="/js/src/gitalk.min.js"></script>
+  <script src="/js/src/md5.js" type="text/javascript"></script>
+  <script>
+  let id = location.href
+  id = hex_md5(id)
+  const gitalk = new Gitalk({
+    clientID: '871b33fddf76276d91aa',
+    clientSecret: '946e58b00919856b957a8b134b18e232b44af6a5',
+    repo: 'hexo',
+    owner: 'pengqiangsheng',
+    admin: ['pengqiangsheng'],
+    id: id,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: true  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+  </script>
+  <!-- live2d看板娘 -->
+  <script type="text/javascript">
+    var message_Path = '/js/live2d/'
+    var home_Path = 'https://forever.netlify.com/'  //此处修改为你的域名，必须带斜杠
+  </script>
+  <script type="text/javascript" src="/js/live2d/js/live2d.js"></script>
+  <script type="text/javascript" src="/js/live2d/js/message.js"></script>
+  <script type="text/javascript">
+      loadlive2d("live2d", "/js/live2d/model/tia/model.json");
+  </script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  <script>
+ function secondToDate(second) {
+ if (!second) {
+ return 0;
+ }
+ var time = new Array(0, 0, 0, 0, 0);
+ if (second >= 365 * 24 * 3600) {
+ time[0] = parseInt(second / (365 * 24 * 3600));
+ second %= 365 * 24 * 3600;
+ }
+ if (second >= 24 * 3600) {
+ time[1] = parseInt(second / (24 * 3600));
+ second %= 24 * 3600;
+ }
+ if (second >= 3600) {
+ time[2] = parseInt(second / 3600);
+ second %= 3600;
+ }
+ if (second >= 60) {
+ time[3] = parseInt(second / 60);
+ second %= 60;
+ }
+ if (second > 0) {
+ time[4] = second;
+ }
+ return time;
+ }
+</script>
+<!-- 统计网站运行时间 -->
+<script type="text/javascript" language="javascript">
+  function setTime() {
+  // 博客创建时间秒数，时间格式中，月比较特殊，是从 0 开始的，所以想要显示 5 月，得写 4 才行，如下
+  var create_time = Math.round(new Date(Date.UTC(2018, 07, 16, 0, 0, 0))
+  .getTime() / 1000);
+  // 当前时间秒数,增加时区的差异
+  var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+  currentTime = secondToDate((timestamp - create_time));
+  currentTimeHtml = currentTime[0] + '岁零' + currentTime[1] + '天了呢！';
+  // + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+  // + '秒';
+  document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+  }
+  setInterval(setTime, 1000);
+</script>
+ 
+</body>
+
+</html>
