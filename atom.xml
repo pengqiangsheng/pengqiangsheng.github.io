@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aboutme.ink/"/>
-  <updated>2019-04-19T04:55:15.201Z</updated>
+  <updated>2019-04-19T04:57:52.172Z</updated>
   <id>http://aboutme.ink/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://aboutme.ink/2019/04/19/Centos-cp-%E5%8E%BB%E6%8E%89%E8%A6%86%E7%9B%96%E6%8F%90%E9%86%92/"/>
     <id>http://aboutme.ink/2019/04/19/Centos-cp-去掉覆盖提醒/</id>
     <published>2019-04-19T02:14:50.000Z</published>
-    <updated>2019-04-19T04:55:15.201Z</updated>
+    <updated>2019-04-19T04:57:52.172Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="CentOS中cp-f-复制强制覆盖的命令总是无效？"><a href="#CentOS中cp-f-复制强制覆盖的命令总是无效？" class="headerlink" title="CentOS中cp -f 复制强制覆盖的命令总是无效？"></a>CentOS中cp -f 复制强制覆盖的命令总是无效？</h1><hr><p>原因是Linux下默认cp命令是有别名的(alias cp=’cp -i’)，无法在复制时强制覆盖，即使你用 -f 参数也无法强制覆盖文件</p><ul><li>1.取消cp的alias(暂时生效)<br>  <code># unalias cp</code><br>  <code># cp -rf /blog</code></li><li>2.加反斜杠 \cp 执行cp命令时不走alias<br>  <code># \cp -rf /blog</code></li><li>3.interesting的方法<br>  <code># yes|cp -rf /blog</code></li></ul><p>这波操作，大家学会了没？<br>测试1<br>测试2</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="CentOS中cp-f-复制强制覆盖的命令总是无效？"><a href="#CentOS中cp-f-复制强制覆盖的命令总是无效？" class="headerlink" title="CentOS中cp -f 复制强制覆盖的命令总是无效？"></a>CentOS中cp -f 复制强制覆盖的命令总是无效？</h1><hr><p>原因是Linux下默认cp命令是有别名的(alias cp=’cp -i’)，无法在复制时强制覆盖，即使你用 -f 参数也无法强制覆盖文件</p><ul><li>1.取消cp的alias(暂时生效)<br>  <code># unalias cp</code><br>  <code># cp -rf /blog</code></li><li>2.加反斜杠 \cp 执行cp命令时不走alias<br>  <code># \cp -rf /blog</code></li><li>3.interesting的方法<br>  <code># yes|cp -rf /blog</code></li></ul><p>这波操作，大家学会了没？<br>测试1<br>测试2<br>测试3</p>]]></content>
     
     <summary type="html">
     
@@ -93,9 +93,9 @@
       <category term="hexo" scheme="http://aboutme.ink/categories/hexo/"/>
     
     
-      <category term="github" scheme="http://aboutme.ink/tags/github/"/>
-    
       <category term="hexo" scheme="http://aboutme.ink/tags/hexo/"/>
+    
+      <category term="github" scheme="http://aboutme.ink/tags/github/"/>
     
   </entry>
   

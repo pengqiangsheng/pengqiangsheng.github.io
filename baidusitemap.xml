@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://aboutme.ink/2019/04/19/Centos-cp-%E5%8E%BB%E6%8E%89%E8%A6%86%E7%9B%96%E6%8F%90%E9%86%92/</loc>
-    <lastmod>2019-04-19T04:55:15.201Z</lastmod>
+    <lastmod>2019-04-19T04:57:52.172Z</lastmod>
     <data>
         <display>
         <title>CentOs cp 去掉覆盖提醒</title>
@@ -57,9 +57,9 @@
         <title>用hexo和github搭建个人博客小站全攻略</title>
         <pubTime>2018-08-20T00:58:52.000Z</pubTime>
         
-        <tag>github</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>github</tag>
          
          
            
