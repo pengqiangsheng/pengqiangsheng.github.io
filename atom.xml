@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aboutme.ink/"/>
-  <updated>2019-04-19T10:58:49.933Z</updated>
+  <updated>2019-04-21T04:20:27.477Z</updated>
   <id>http://aboutme.ink/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用</title>
+    <link href="http://aboutme.ink/2019/04/21/%E7%94%A8nginx%E9%85%8D%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE%E5%88%B0%E5%85%AC%E7%BD%91ip%E7%9A%84%E4%B8%8D%E5%90%8C%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%BA%94%E7%94%A8/"/>
+    <id>http://aboutme.ink/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/</id>
+    <published>2019-04-21T03:51:04.000Z</published>
+    <updated>2019-04-21T04:20:27.477Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="如何用nginx配置二级域名解析到ip的不同端口呢"><a href="#如何用nginx配置二级域名解析到ip的不同端口呢" class="headerlink" title="如何用nginx配置二级域名解析到ip的不同端口呢"></a>如何用nginx配置二级域名解析到ip的不同端口呢</h1><p>总所周知，ip:80这种方式的web应用可以直接用ip去访问，原因是输入ip的时候，浏览器会自动的默认认为是ip:80这样的形式去访问。<br>利用这一点我们可以用域名解析到ip上进行只需要输入<code>www.domain.com</code>去访问web页面。各大网站也是如此。</p><h2 id="如果是ip-80以外的端口怎么办？"><a href="#如果是ip-80以外的端口怎么办？" class="headerlink" title="如果是ip:80以外的端口怎么办？"></a>如果是ip:80以外的端口怎么办？</h2><p>一台服务器不可能说只部署一个web应用吧，其他的都要通过ip+端口或者域名+端口去访问多麻烦啊，而且样子也不好看呀。<br>这个时候，<strong>救世主nginx</strong>大爷就出现了，他说我有很多的<em>NB功能</em>啊，例如反向代理啊！<br><img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/nb.gif" alt=""></p><h2 id="Nginx方向代理"><a href="#Nginx方向代理" class="headerlink" title="Nginx方向代理"></a>Nginx方向代理</h2><p>我们要如何使用这个技能呢？</p><ul><li>1.首先找到你服务器中nginx的配置文件所在的文件夹<br>  一般都是<code>/usr/local/nginx/conf/</code>这个文件夹下有个nginx.conf或者default.conf反正.conf的文件都看一看<br>  命令是<code>cat nginx.conf</code><br>  <img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/1.png" alt=""></li><li>2.然后打开nginx.conf看一眼里面的配置<br>  主要是找到一句话叫做<code>include xxxx/*.conf</code>,如果没有你自己加一句吧<br>  <img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/2.png" alt=""></li><li>3.然后进入这个xxxx文件夹下新建一个.conf，我这里是gogs.conf<br>  然后编辑gogs.conf的内容为下图，然后保存<br>  <img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/3.jpg" alt=""></li><li>4.记得重启nginx，如果没报错的话，你配置应该成功了</li></ul><p>然后打开浏览器输入git.aboutme.ink试试<br><img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/5.png" alt=""><br>成功咯！<br><img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/wen.gif" alt=""><br>然后我再来一个cloud.aboutme.ink试试,打开浏览器访问 cloud.aboutme.ink也可以访问了<br><img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/6.png" alt=""></p><h2 id="gogs-conf的代码如下"><a href="#gogs-conf的代码如下" class="headerlink" title="gogs.conf的代码如下"></a>gogs.conf的代码如下</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server</span><br><span class="line">&#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name git.aboutme.ink;</span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_redirect off;</span><br><span class="line">                proxy_set_header Host $host;</span><br><span class="line">                proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">                proxy_pass http://127.0.0.1:10080;</span><br><span class="line">        &#125;</span><br><span class="line">        access_log /home/wwwlogs/git.aboutme.ink.log;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>大家可以按照我的方法试试看，不行可以留言反馈咯，我会及时解决的。至于这两个应用怎么构建的，后续出教程啊！<br><img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/huanhu.gif" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;如何用nginx配置二级域名解析到ip的不同端口呢&quot;&gt;&lt;a href=&quot;#如何用nginx配置二级域名解析到ip的不同端口呢&quot; class=&quot;headerlink&quot; title=&quot;如何用nginx配置二级域名解析到ip的不同端口呢&quot;&gt;&lt;/a&gt;如何用nginx配置二
+      
+    
+    </summary>
+    
+      <category term="nginx" scheme="http://aboutme.ink/categories/nginx/"/>
+    
+    
+      <category term="nginx" scheme="http://aboutme.ink/tags/nginx/"/>
+    
+      <category term="domain" scheme="http://aboutme.ink/tags/domain/"/>
+    
+  </entry>
   
   <entry>
     <title>关于php执行shell命令的一些体会</title>
@@ -124,9 +151,9 @@
       <category term="hexo" scheme="http://aboutme.ink/categories/hexo/"/>
     
     
-      <category term="github" scheme="http://aboutme.ink/tags/github/"/>
-    
       <category term="hexo" scheme="http://aboutme.ink/tags/hexo/"/>
+    
+      <category term="github" scheme="http://aboutme.ink/tags/github/"/>
     
   </entry>
   
