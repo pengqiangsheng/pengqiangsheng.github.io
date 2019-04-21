@@ -959,7 +959,7 @@
   <script>
   let id = location.href
   if(id.indexOf('www') > -1) {
-    let str = test.split(".")
+    let str = id.split(".")
     let href = ''
     for(let i = 1,len=str.length;i<len;i++) {
       href+=str[i]
