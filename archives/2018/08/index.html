@@ -1093,7 +1093,7 @@
   let id = location.href
   if(id.indexOf('www') > -1) {
     let str = id.split(".")
-    let href = ''
+    let href = 'http://'
     for(let i = 1,len=str.length;i<len;i++) {
       href+=str[i]
       if(i===1) {
@@ -1102,6 +1102,7 @@
     }
     id = href
   }
+  console.log(id)
   id = hex_md5(id)
   const gitalk = new Gitalk({
     clientID: '871b33fddf76276d91aa',

@@ -124,9 +124,9 @@
       <category term="hexo" scheme="http://aboutme.ink/categories/hexo/"/>
     
     
-      <category term="github" scheme="http://aboutme.ink/tags/github/"/>
-    
       <category term="hexo" scheme="http://aboutme.ink/tags/hexo/"/>
+    
+      <category term="github" scheme="http://aboutme.ink/tags/github/"/>
     
   </entry>
   
