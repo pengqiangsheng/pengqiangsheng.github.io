@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[docker+gogs+nginx配置Git服务自动部署Web应用]]></title>
+    <url>%2F2019%2F04%2F22%2Fdocker-gogs-nginx%E9%85%8D%E7%BD%AEGit%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2Web%E5%BA%94%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[如何部署一个git服务而且又可以自动部署web应用呢？ 1.docker 2.gogs 3.nginx 明白以上三者是什么，就可以开始搞事了！ 一、放通端口，阿里云腾讯云的需要到各自的官网开发1.查看firewall服务状态systemctl status firewalld2.查看firewall的状态firewall-cmd --state3.开启、重启、关闭firewall服务 开启 service firewalld start 重启 service firewalld restart 关闭 service firewalld stop 4.查看防火墙规则firewall-cmd --list-all5.查询、开放、关闭端口 查询端口是否开放 firewall-cmd --query-port=8080/tcp 开放80端口 firewall-cmd --permanent --add-port=80/tcp 移除端口 firewall-cmd --permanent --remove-port=8080/tcp 重启防火墙(修改配置后要重启防火墙) firewall-cmd --reload 参数解释 1、firwall-cmd：是Linux提供的操作firewall的一个工具； 2、–permanent：表示设置为持久； 3、–add-port：标识添加的端口； 二、安装docker1、使用 sudo 或 root 权限登录 Centos。 2、确保 yum 包更新到最新。 $ sudo yum update3、执行 Docker 安装脚本。 $ curl -fsSL https://get.docker.com -o get-docker.sh$ sudo sh get-docker.sh执行这个脚本会添加 docker.repo 源并安装 Docker。 4、启动 Docker 进程。 sudo systemctl start docker5、验证 docker 是否安装成功并在容器中执行一个测试的镜像。 $ sudo docker run hello-worlddocker ps到此，Docker 在 CentOS 系统的安装完成。(教程来自菜鸟教程，更多系统安装请前往菜鸟教程) 三、用小南提供的自动脚本nan-deploy.sh去安装gogs和nginx1、下载nan-deploy.sh$ curl -O http://aboutme.ink/share/nan-deploy.sh2、给脚本赋予权限$ chmod +x nan-deploy.sh3、运行脚本$ ./nan-deploy.sh /home/docker/gogs/ 10080 10022 80参数解释 /home/docker/gogs/ 是参数一，代表了gogs和nginx安装的路径 10080 是参数二，表示gogs应用访问端口，ip:10080去访问gogs首页 10022 是参数三，表示gogs对外暴露的ssh端口，用于配置秘钥后下载和上传git代码 80 是参数四，表示nginx的端口，ip直接可以访问nginx首页（80默认隐藏） 以上四个参数自己调整也可以，新手建议默认按照我的配置就可以了以下是完整运行截图4、打开浏览器访问ip:10080和ip:80如果出现这些页面说明成功了！5、配置gogs，打开页面ip:10080点击立即安装，稍等一会会跳转登陆页面，如下然后注册一个账号并且登陆会成为管理员（第一个账号） 后续更新]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>nginx</tag>
+        <tag>gogs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用]]></title>
     <url>%2F2019%2F04%2F21%2F%E7%94%A8nginx%E9%85%8D%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE%E5%88%B0%E5%85%AC%E7%BD%91ip%E7%9A%84%E4%B8%8D%E5%90%8C%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%BA%94%E7%94%A8%2F</url>
     <content type="text"><![CDATA[如何用nginx配置二级域名解析到ip的不同端口呢总所周知，ip:80这种方式的web应用可以直接用ip去访问，原因是输入ip的时候，浏览器会自动的默认认为是ip:80这样的形式去访问。利用这一点我们可以用域名解析到ip上进行只需要输入www.domain.com去访问web页面。各大网站也是如此。 如果是ip:80以外的端口怎么办？一台服务器不可能说只部署一个web应用吧，其他的都要通过ip+端口或者域名+端口去访问多麻烦啊，而且样子也不好看呀。这个时候，救世主nginx大爷就出现了，他说我有很多的NB功能啊，例如反向代理啊！ Nginx方向代理我们要如何使用这个技能呢？ 1.首先找到你服务器中nginx的配置文件所在的文件夹 一般都是/usr/local/nginx/conf/这个文件夹下有个nginx.conf或者default.conf反正.conf的文件都看一看 命令是cat nginx.conf 2.然后打开nginx.conf看一眼里面的配置 主要是找到一句话叫做include xxxx/*.conf,如果没有你自己加一句吧 3.然后进入这个xxxx文件夹下新建一个.conf，我这里是gogs.conf 然后编辑gogs.conf的内容为下图，然后保存 4.记得重启nginx，如果没报错的话，你配置应该成功了 然后打开浏览器输入git.aboutme.ink试试成功咯！然后我再来一个cloud.aboutme.ink试试,打开浏览器访问 cloud.aboutme.ink也可以访问了 gogs.conf的代码如下12345678910111213server&#123; listen 80; server_name git.aboutme.ink; location / &#123; proxy_redirect off; proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_pass http://127.0.0.1:10080; &#125; access_log /home/wwwlogs/git.aboutme.ink.log;&#125; 后续大家可以按照我的方法试试看，不行可以留言反馈咯，我会及时解决的。至于这两个应用怎么构建的，后续出教程啊！]]></content>
@@ -58,8 +71,8 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>github</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>

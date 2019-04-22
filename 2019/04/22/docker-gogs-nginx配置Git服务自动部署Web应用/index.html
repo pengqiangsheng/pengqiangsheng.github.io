@@ -65,7 +65,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="docker,nginx,gogs," />
 
 
 
@@ -78,16 +78,26 @@
 
 
 
-<meta name="description" content="知与南的博客，分享决定技术的高低，学习拉开技术的差距">
-<meta property="og:type" content="website">
-<meta property="og:title" content="知与南_南风知我意,吹梦到西周">
-<meta property="og:url" content="http://aboutme.ink/categories/hexo/index.html">
+<meta name="description" content="如何部署一个git服务而且又可以自动部署web应用呢？ 1.docker 2.gogs 3.nginx  明白以上三者是什么，就可以开始搞事了！ 一、放通端口，阿里云腾讯云的需要到各自的官网开发1.查看firewall服务状态systemctl status firewalld2.查看firewall的状态firewall-cmd --state3.开启、重启、关闭firewall服务  开启">
+<meta name="keywords" content="docker,nginx,gogs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker+gogs+nginx配置Git服务自动部署Web应用">
+<meta property="og:url" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/index.html">
 <meta property="og:site_name" content="知与南_南风知我意,吹梦到西周">
-<meta property="og:description" content="知与南的博客，分享决定技术的高低，学习拉开技术的差距">
+<meta property="og:description" content="如何部署一个git服务而且又可以自动部署web应用呢？ 1.docker 2.gogs 3.nginx  明白以上三者是什么，就可以开始搞事了！ 一、放通端口，阿里云腾讯云的需要到各自的官网开发1.查看firewall服务状态systemctl status firewalld2.查看firewall的状态firewall-cmd --state3.开启、重启、关闭firewall服务  开启">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/1.png">
+<meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/2.png">
+<meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/3.png">
+<meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/4.png">
+<meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/5.png">
+<meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/6.png">
+<meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/7.png">
+<meta property="og:updated_time" content="2019-04-22T08:23:15.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="知与南_南风知我意,吹梦到西周">
-<meta name="twitter:description" content="知与南的博客，分享决定技术的高低，学习拉开技术的差距">
+<meta name="twitter:title" content="docker+gogs+nginx配置Git服务自动部署Web应用">
+<meta name="twitter:description" content="如何部署一个git服务而且又可以自动部署web应用呢？ 1.docker 2.gogs 3.nginx  明白以上三者是什么，就可以开始搞事了！ 一、放通端口，阿里云腾讯云的需要到各自的官网开发1.查看firewall服务状态systemctl status firewalld2.查看firewall的状态firewall-cmd --state3.开启、重启、关闭firewall服务  开启">
+<meta name="twitter:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/1.png">
 
 
 
@@ -117,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://aboutme.ink/categories/hexo/"/>
+  <link rel="canonical" href="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/"/>
 
 
 
 
 
-  <title>分类: hexo | 知与南_南风知我意,吹梦到西周</title>
+  <title>docker+gogs+nginx配置Git服务自动部署Web应用 | 知与南_南风知我意,吹梦到西周</title>
   
 
 
@@ -151,7 +161,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
      
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -272,83 +282,223 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>hexo<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="知与南">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/13.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知与南_南风知我意,吹梦到西周">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/20/用hexo和github搭建个人博客小站全攻略/" itemprop="url">
-              
-                <span itemprop="name">用hexo和github搭建个人博客小站全攻略</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">docker+gogs+nginx配置Git服务自动部署Web应用</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-20T08:58:52+08:00"
-              content="2018-08-20" >
-          08-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T15:16:17+08:00">
+                2019-04-22
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/17/hexo生成博文插入图片的办法/" itemprop="url">
-              
-                <span itemprop="name">hexo生成博文插入图片的办法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-17T17:43:48+08:00"
-              content="2018-08-17" >
-          08-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="如何部署一个git服务而且又可以自动部署web应用呢？"><a href="#如何部署一个git服务而且又可以自动部署web应用呢？" class="headerlink" title="如何部署一个git服务而且又可以自动部署web应用呢？"></a>如何部署一个git服务而且又可以自动部署web应用呢？</h1><ul>
+<li>1.docker</li>
+<li>2.gogs</li>
+<li>3.nginx</li>
+</ul>
+<p>明白以上三者是什么，就可以开始搞事了！</p>
+<h2 id="一、放通端口，阿里云腾讯云的需要到各自的官网开发"><a href="#一、放通端口，阿里云腾讯云的需要到各自的官网开发" class="headerlink" title="一、放通端口，阿里云腾讯云的需要到各自的官网开发"></a>一、放通端口，阿里云腾讯云的需要到各自的官网开发</h2><p>1.查看firewall服务状态<br><code>systemctl status firewalld</code><br>2.查看firewall的状态<br><code>firewall-cmd --state</code><br>3.开启、重启、关闭firewall服务</p>
+<ul>
+<li><h1 id="开启"><a href="#开启" class="headerlink" title="开启"></a>开启</h1>  <code>service firewalld start</code></li>
+<li><h1 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h1>  <code>service firewalld restart</code></li>
+<li><h1 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h1>  <code>service firewalld stop</code></li>
+</ul>
+<p>4.查看防火墙规则<br><code>firewall-cmd --list-all</code><br>5.查询、开放、关闭端口</p>
+<ul>
+<li><h1 id="查询端口是否开放"><a href="#查询端口是否开放" class="headerlink" title="查询端口是否开放"></a>查询端口是否开放</h1>  <code>firewall-cmd --query-port=8080/tcp</code></li>
+<li><h1 id="开放80端口"><a href="#开放80端口" class="headerlink" title="开放80端口"></a>开放80端口</h1>  <code>firewall-cmd --permanent --add-port=80/tcp</code></li>
+<li><h1 id="移除端口"><a href="#移除端口" class="headerlink" title="移除端口"></a>移除端口</h1>  <code>firewall-cmd --permanent --remove-port=8080/tcp</code></li>
+<li><h1 id="重启防火墙-修改配置后要重启防火墙"><a href="#重启防火墙-修改配置后要重启防火墙" class="headerlink" title="重启防火墙(修改配置后要重启防火墙)"></a>重启防火墙(修改配置后要重启防火墙)</h1>  <code>firewall-cmd --reload</code></li>
+<li><h1 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h1>  1、firwall-cmd：是Linux提供的操作firewall的一个工具；<br>  2、–permanent：表示设置为持久；<br>  3、–add-port：标识添加的端口；</li>
+</ul>
+<h2 id="二、安装docker"><a href="#二、安装docker" class="headerlink" title="二、安装docker"></a>二、安装docker</h2><p>1、使用 sudo 或 root 权限登录 Centos。</p>
+<p>2、确保 yum 包更新到最新。</p>
+<p><code>$ sudo yum update</code><br>3、执行 Docker 安装脚本。</p>
+<p><code>$ curl -fsSL https://get.docker.com -o get-docker.sh</code><br><code>$ sudo sh get-docker.sh</code><br>执行这个脚本会添加 docker.repo 源并安装 Docker。</p>
+<p>4、启动 Docker 进程。</p>
+<p><code>sudo systemctl start docker</code><br>5、验证 docker 是否安装成功并在容器中执行一个测试的镜像。</p>
+<p><code>$ sudo docker run hello-world</code><br><code>docker ps</code><br>到此，Docker 在 CentOS 系统的安装完成。(教程来自菜鸟教程，更多系统安装请前往<a href="http://www.runoob.com/docker/docker-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>)</p>
+<h2 id="三、用小南提供的自动脚本nan-deploy-sh去安装gogs和nginx"><a href="#三、用小南提供的自动脚本nan-deploy-sh去安装gogs和nginx" class="headerlink" title="三、用小南提供的自动脚本nan-deploy.sh去安装gogs和nginx"></a>三、用小南提供的自动脚本nan-deploy.sh去安装gogs和nginx</h2><p>1、下载nan-deploy.sh<br><code>$ curl -O http://aboutme.ink/share/nan-deploy.sh</code><br>2、给脚本赋予权限<br><code>$ chmod +x nan-deploy.sh</code><br>3、运行脚本<br><code>$ ./nan-deploy.sh /home/docker/gogs/ 10080 10022 80</code><br>参数解释</p>
+<ul>
+<li>/home/docker/gogs/  是参数一，代表了gogs和nginx安装的路径</li>
+<li>10080 是参数二，表示gogs应用访问端口，ip:10080去访问gogs首页</li>
+<li>10022 是参数三，表示gogs对外暴露的ssh端口，用于配置秘钥后下载和上传git代码</li>
+<li>80 是参数四，表示nginx的端口，ip直接可以访问nginx首页（80默认隐藏）</li>
+</ul>
+<p>以上四个参数自己调整也可以，新手建议默认按照我的配置就可以了<br>以下是完整运行截图<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/1.png" alt=""><br>4、打开浏览器访问ip:10080和ip:80<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/2.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/3.png" alt=""><br>如果出现这些页面说明成功了！<br>5、配置gogs，打开页面ip:10080<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/4.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/5.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/6.png" alt=""><br>点击立即安装，稍等一会会跳转登陆页面，如下<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/7.png" alt=""><br>然后注册一个账号并且登陆会成为管理员（第一个账号）</p>
+<h2 id="后续更新"><a href="#后续更新" class="headerlink" title="后续更新"></a>后续更新</h2>
       
     </div>
+    
+    
+    
 
+    
+
+          
+      <div align="center">   
+        <div class="copyright">
+          <p><span>
+          <b>本文地址：</b><a href="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/" title="docker+gogs+nginx配置Git服务自动部署Web应用">http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/</a><br/><b>转载请注明出处，谢谢！</b>
+          </span></p>
+        </div> 
+      </div>
+      <div style="text-align:center;color: #ccc;font-size:14px;">
+      ---------------- The End ----------------
+      </div>
+    
+
+
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          
+            <a href="/tags/nginx/" rel="tag"><i class="fa fa-tag"></i> nginx</a>
+          
+            <a href="/tags/gogs/" rel="tag"><i class="fa fa-tag"></i> gogs</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/" rel="next" title="用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用">
+                <i class="fa fa-chevron-left"></i> 用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -357,6 +507,10 @@
           
 
  
+
+  
+
+
 
         </div>
          
@@ -376,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -490,6 +653,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何部署一个git服务而且又可以自动部署web应用呢？"><span class="nav-number">1.</span> <span class="nav-text">如何部署一个git服务而且又可以自动部署web应用呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、放通端口，阿里云腾讯云的需要到各自的官网开发"><span class="nav-number">1.1.</span> <span class="nav-text">一、放通端口，阿里云腾讯云的需要到各自的官网开发</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启"><span class="nav-number">2.</span> <span class="nav-text">开启</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重启"><span class="nav-number">3.</span> <span class="nav-text">重启</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关闭"><span class="nav-number">4.</span> <span class="nav-text">关闭</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询端口是否开放"><span class="nav-number">5.</span> <span class="nav-text">查询端口是否开放</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开放80端口"><span class="nav-number">6.</span> <span class="nav-text">开放80端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移除端口"><span class="nav-number">7.</span> <span class="nav-text">移除端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重启防火墙-修改配置后要重启防火墙"><span class="nav-number">8.</span> <span class="nav-text">重启防火墙(修改配置后要重启防火墙)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参数解释"><span class="nav-number">9.</span> <span class="nav-text">参数解释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装docker"><span class="nav-number">9.1.</span> <span class="nav-text">二、安装docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、用小南提供的自动脚本nan-deploy-sh去安装gogs和nginx"><span class="nav-number">9.2.</span> <span class="nav-text">三、用小南提供的自动脚本nan-deploy.sh去安装gogs和nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续更新"><span class="nav-number">9.3.</span> <span class="nav-text">后续更新</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -617,7 +796,11 @@
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
 
-  
+ 
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+ 
 
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
