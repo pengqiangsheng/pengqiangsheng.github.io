@@ -89,13 +89,15 @@
 <meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/1.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/2.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/3.png">
+<meta property="og:image" content="http://aboutme.ink/pqs/img/huaji.gif">
 <meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/4.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/5.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/6.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/7.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/8.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/9.png">
-<meta property="og:updated_time" content="2019-04-22T09:28:20.787Z">
+<meta property="og:image" content="http://aboutme.ink/pqs/img/huanhu.gif">
+<meta property="og:updated_time" content="2019-04-22T09:32:58.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker+gogs+nginx配置Git服务自动部署Web应用">
 <meta name="twitter:description" content="如何部署一个git服务而且又可以自动部署web应用呢？ 1.docker 2.gogs 3.nginx  明白以上三者是什么，就可以开始搞事了！ 一、放通端口，阿里云腾讯云的需要到各自的官网开放1.查看firewall服务状态systemctl status firewalld2.查看firewall的状态firewall-cmd --state3.开启、重启、关闭firewall服务  开启">
@@ -421,8 +423,9 @@
 <li>10022 是参数三，表示gogs对外暴露的ssh端口，用于配置秘钥后下载和上传git代码</li>
 <li>80 是参数四，表示nginx的端口，ip直接可以访问nginx首页（80默认隐藏）</li>
 </ul>
-<p>以上四个参数自己调整也可以，新手建议默认按照我的配置就可以了<br>以下是完整运行截图<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/1.png" alt=""><br>4、打开浏览器访问ip:10080和ip:80<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/2.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/3.png" alt=""><br>如果出现这些页面说明成功了！<br>5、配置gogs，打开页面ip:10080<br>数据库选SQLite3，域名写自己的服务器ip，ssh端口填参数三10022，勾选内置服务器，http端口填写参数二10080，应用url填写ip:10080，然后点立即安装<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/4.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/5.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/6.png" alt=""><br>点击立即安装，稍等一会会跳转登陆页面，如下<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/7.png" alt=""><br>6、然后注册一个账号并且登陆会成为管理员（第一个账号）<br>7、新建一个仓库，并且克隆到本地<br>8、点击仓库设置配置git钩子或者web钩子<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/8.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/9.png" alt=""></p>
-<h2 id="后续更新"><a href="#后续更新" class="headerlink" title="后续更新"></a>后续更新</h2>
+<p>以上四个参数自己调整也可以，新手建议默认按照我的配置就可以了<br>以下是完整运行截图<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/1.png" alt=""><br>4、打开浏览器访问ip:10080和ip:80<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/2.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/3.png" alt=""><br>如果出现这些页面说明成功了！<br><img src="http://aboutme.ink/pqs/img/huaji.gif" alt=""><br>5、配置gogs，打开页面ip:10080<br>数据库选SQLite3，域名写自己的服务器ip，ssh端口填参数三10022，勾选内置服务器，http端口填写参数二10080，应用url填写ip:10080，然后点立即安装<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/4.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/5.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/6.png" alt=""><br>点击立即安装，稍等一会会跳转登陆页面，如下<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/7.png" alt=""><br>6、然后注册一个账号并且登陆会成为管理员（第一个账号）<br>7、新建一个仓库，并且克隆到本地<br>8、点击仓库设置配置git钩子或者web钩子<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/8.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/9.png" alt=""></p>
+<h2 id="后续更新"><a href="#后续更新" class="headerlink" title="后续更新"></a>后续更新</h2><p><img src="http://aboutme.ink/pqs/img/huanhu.gif" alt=""></p>
+
       
     </div>
     
