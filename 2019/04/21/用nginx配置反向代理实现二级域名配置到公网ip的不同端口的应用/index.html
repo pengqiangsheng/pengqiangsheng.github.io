@@ -87,6 +87,7 @@
 <meta property="og:description" content="如何用nginx配置二级域名解析到ip的不同端口呢总所周知，ip:80这种方式的web应用可以直接用ip去访问，原因是输入ip的时候，浏览器会自动的默认认为是ip:80这样的形式去访问。利用这一点我们可以用域名解析到ip上进行只需要输入www.domain.com去访问web页面。各大网站也是如此。 如果是ip:80以外的端口怎么办？一台服务器不可能说只部署一个web应用吧，其他的都要通过ip+端">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://aboutme.ink/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/nb.gif">
+<meta property="og:image" content="http://aboutme.ink/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/0.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/1.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/2.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/3.jpg">
@@ -94,7 +95,7 @@
 <meta property="og:image" content="http://aboutme.ink/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/wen.gif">
 <meta property="og:image" content="http://aboutme.ink/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/6.png">
 <meta property="og:image" content="http://aboutme.ink/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/huanhu.gif">
-<meta property="og:updated_time" content="2019-04-21T04:20:27.477Z">
+<meta property="og:updated_time" content="2019-04-22T09:26:27.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用">
 <meta name="twitter:description" content="如何用nginx配置二级域名解析到ip的不同端口呢总所周知，ip:80这种方式的web应用可以直接用ip去访问，原因是输入ip的时候，浏览器会自动的默认认为是ip:80这样的形式去访问。利用这一点我们可以用域名解析到ip上进行只需要输入www.domain.com去访问web页面。各大网站也是如此。 如果是ip:80以外的端口怎么办？一台服务器不可能说只部署一个web应用吧，其他的都要通过ip+端">
@@ -388,6 +389,7 @@
       
         <h1 id="如何用nginx配置二级域名解析到ip的不同端口呢"><a href="#如何用nginx配置二级域名解析到ip的不同端口呢" class="headerlink" title="如何用nginx配置二级域名解析到ip的不同端口呢"></a>如何用nginx配置二级域名解析到ip的不同端口呢</h1><p>总所周知，ip:80这种方式的web应用可以直接用ip去访问，原因是输入ip的时候，浏览器会自动的默认认为是ip:80这样的形式去访问。<br>利用这一点我们可以用域名解析到ip上进行只需要输入<code>www.domain.com</code>去访问web页面。各大网站也是如此。</p>
 <h2 id="如果是ip-80以外的端口怎么办？"><a href="#如果是ip-80以外的端口怎么办？" class="headerlink" title="如果是ip:80以外的端口怎么办？"></a>如果是ip:80以外的端口怎么办？</h2><p>一台服务器不可能说只部署一个web应用吧，其他的都要通过ip+端口或者域名+端口去访问多麻烦啊，而且样子也不好看呀。<br>这个时候，<strong>救世主nginx</strong>大爷就出现了，他说我有很多的<em>NB功能</em>啊，例如反向代理啊！<br><img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/nb.gif" alt=""></p>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>你需要有一个域名和一台服务器（国内需备案）<br>然后去解析域名，添加两个A记录如下图<br><img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/0.png" alt=""></p>
 <h2 id="Nginx方向代理"><a href="#Nginx方向代理" class="headerlink" title="Nginx方向代理"></a>Nginx方向代理</h2><p>我们要如何使用这个技能呢？</p>
 <ul>
 <li>1.首先找到你服务器中nginx的配置文件所在的文件夹<br>  一般都是<code>/usr/local/nginx/conf/</code>这个文件夹下有个nginx.conf或者default.conf反正.conf的文件都看一看<br>  命令是<code>cat nginx.conf</code><br>  <img src="/2019/04/21/用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/1.png" alt=""></li>
@@ -643,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何用nginx配置二级域名解析到ip的不同端口呢"><span class="nav-number">1.</span> <span class="nav-text">如何用nginx配置二级域名解析到ip的不同端口呢</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如果是ip-80以外的端口怎么办？"><span class="nav-number">1.1.</span> <span class="nav-text">如果是ip:80以外的端口怎么办？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx方向代理"><span class="nav-number">1.2.</span> <span class="nav-text">Nginx方向代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gogs-conf的代码如下"><span class="nav-number">1.3.</span> <span class="nav-text">gogs.conf的代码如下</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后续"><span class="nav-number">2.</span> <span class="nav-text">后续</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何用nginx配置二级域名解析到ip的不同端口呢"><span class="nav-number">1.</span> <span class="nav-text">如何用nginx配置二级域名解析到ip的不同端口呢</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如果是ip-80以外的端口怎么办？"><span class="nav-number">1.1.</span> <span class="nav-text">如果是ip:80以外的端口怎么办？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前提"><span class="nav-number">1.2.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx方向代理"><span class="nav-number">1.3.</span> <span class="nav-text">Nginx方向代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gogs-conf的代码如下"><span class="nav-number">1.4.</span> <span class="nav-text">gogs.conf的代码如下</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后续"><span class="nav-number">2.</span> <span class="nav-text">后续</span></a></li></ol></div>
             
 
           </div>
