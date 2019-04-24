@@ -215,7 +215,12 @@
           </a>
         </li>
       
-
+      <li class="menu-item menu-item-message">
+          <a href="/message" rel="section">
+            <i class="menu-item-icon fa fa-fw"><img src="http://aboutme.ink/pqs/img/message.png" style="width:100%; line-height:37px;" ></i> <br />
+            留言
+        </a>
+      </li>
       
         <li class="menu-item menu-item-search">
           
@@ -482,9 +487,8 @@
   
 </div>
  
-<!-- 统计时间 -->
-  <div>小南已经<span id="htmer_time"></span></div>
-
+  <!-- 统计时间 --> <!-- 统计访问量-->
+  <div>小南已经<span id="htmer_time"></span>&nbsp;|&nbsp;被偷看<span id="site_pv"></span>次</div>
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
@@ -987,7 +991,7 @@
   <!-- live2d看板娘 -->
   <script type="text/javascript">
     var message_Path = '/js/live2d/'
-    var home_Path = 'https://forever.netlify.com/'  //此处修改为你的域名，必须带斜杠
+    var home_Path = 'http://aboutme.ink/'  //此处修改为你的域名，必须带斜杠
   </script>
   <script type="text/javascript" src="/js/live2d/js/live2d.js"></script>
   <script type="text/javascript" src="/js/live2d/js/message.js"></script>
@@ -1033,13 +1037,13 @@
     // 当前时间秒数,增加时区的差异
     var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
     currentTime = secondToDate((timestamp - create_time));
-    currentTimeHtml = currentTime[0] + '岁零' + currentTime[1] + '天了呢！';
+    currentTimeHtml = currentTime[0] + '岁零' + currentTime[1] + '天了';
     // + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
     // + '秒';
     document.getElementById("htmer_time").innerHTML = currentTimeHtml;
     }
     setInterval(setTime, 1000);
-</script>
+  </script>
   <!-- 百度推送脚本 -->
   <script>
   (function(){
@@ -1054,6 +1058,135 @@
               var s = document.getElementsByTagName("script")[0];
               s.parentNode.insertBefore(bp, s);
           })();
+  </script>
+  <!-- 统计访问量 -->
+  <script>
+  /**
+  * 实现访问量统计和留言
+  * @authors pengqiangsheng
+  * @date    2018-08-26 09:22:10
+  * @version v1.0
+  */
+  window.onload = function() {
+      showSitePv();
+      showPagePv();
+  }
+  // function myMessage() {
+  //     let str = "query";
+  //     let xmlhttp;
+  //     let message = document.getElementById("mymessage");
+  //     if (window.XMLHttpRequest) {
+  //         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+  //         xmlhttp = new XMLHttpRequest();
+  //     } else {
+  //         // IE6, IE5 浏览器执行代码
+  //         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  //     }
+  //     xmlhttp.onreadystatechange = function() {
+  //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+  //             message.innerHTML += xmlhttp.responseText;
+  //         }
+  //     }
+  //     xmlhttp.open("GET", "http://aboutme.ink/plug/getMessage.php?q=" + str, true);
+  //     xmlhttp.send();
+  // }
+  function showSitePv() {
+      let pageId = 1;
+      let xmlhttp;
+      let sitePv = document.getElementById("site_pv");
+      if (window.XMLHttpRequest) {
+          // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+          xmlhttp = new XMLHttpRequest();
+      } else {
+          // IE6, IE5 浏览器执行代码
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              sitePv.innerHTML += xmlhttp.responseText;
+              addOnePv(xmlhttp.responseText);
+          }
+      }
+      xmlhttp.open("GET", "http://aboutme.ink/plug/getCount.php?pageId=" + pageId, true);
+      xmlhttp.send();
+  }
+  function showPagePv() {
+    let pageId = id
+    let xmlhttp;
+    let pagePV = document.getElementById("myPagePv");
+    if (window.XMLHttpRequest) {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+           if(xmlhttp.responseText=="null result") {
+              updatePagePv('1', 'insert');
+              pagePV.innerHTML += "本文阅读数1次";
+           }else {
+              pagePV.innerHTML += "本文阅读数";
+              pagePV.innerHTML += xmlhttp.responseText;
+              pagePV.innerHTML += "次";
+              updatePagePv(xmlhttp.responseText, 'update');
+            }
+        }
+    }
+    xmlhttp.open("GET", "http://aboutme.ink/plug/getCount.php?pageId=" + pageId, true);
+    xmlhttp.send();
+  }
+  function updatePagePv(strPv, type) {
+    let pageId = id
+    let pv = parseInt(strPv) + 1
+    let xmlhttp;
+    if (window.XMLHttpRequest) {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.responseText == 'success') {
+              console.log('success')
+            }else {
+              console.log('fali')
+            }
+        }
+    }
+    if (type === "insert") {
+      xmlhttp.open("GET", "http://aboutme.ink/plug/addCount.php?pv=" + pv + "&pageId=" + pageId, true);
+    }else {
+       xmlhttp.open("GET", "http://aboutme.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId, true);
+    }
+    xmlhttp.send();
+  }
+  function addOnePv(strPv) {
+    let pageId = 1;
+    let pv = parseInt(strPv) + 1
+    let xmlhttp;
+    if (window.XMLHttpRequest) {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.responseText == 'success') {
+              console.log('success')
+            }else {
+              console.log('fali')
+            }
+        }
+    }
+    xmlhttp.open("GET", "http://aboutme.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId , true);
+    xmlhttp.send();
+  }
   </script>
 </body>
 
