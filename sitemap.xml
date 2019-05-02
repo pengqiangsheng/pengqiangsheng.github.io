@@ -2,22 +2,22 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <sitemap>
-        <loc>http://aboutme.ink/post-sitemap.xml</loc>
+        <loc>https://inner.ink/post-sitemap.xml</loc>
         <lastmod>2019-04-22T12:48:45.032Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://aboutme.ink/page-sitemap.xml</loc>
+        <loc>https://inner.ink/page-sitemap.xml</loc>
         <lastmod>2019-04-24T01:50:15.249Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://aboutme.ink/category-sitemap.xml</loc>
+        <loc>https://inner.ink/category-sitemap.xml</loc>
         <lastmod>2019-04-13T01:13:58.288Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://aboutme.ink/tag-sitemap.xml</loc>
+        <loc>https://inner.ink/tag-sitemap.xml</loc>
         <lastmod>2019-04-13T01:13:58.293Z</lastmod>
     </sitemap>
 
