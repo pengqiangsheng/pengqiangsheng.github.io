@@ -89,7 +89,7 @@
 <meta property="og:image" content="https://inner.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/1.png">
 <meta property="og:image" content="https://inner.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/2.png">
 <meta property="og:image" content="https://inner.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/3.png">
-<meta property="og:image" content="http://aboutme.ink/pqs/img/huaji.gif">
+<meta property="og:image" content="https://inner.ink/pqs/img/huaji.gif">
 <meta property="og:image" content="https://inner.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/4.png">
 <meta property="og:image" content="https://inner.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/5.png">
 <meta property="og:image" content="https://inner.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/6.png">
@@ -103,8 +103,8 @@
 <meta property="og:image" content="https://inner.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/13.png">
 <meta property="og:image" content="https://inner.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/14.png">
 <meta property="og:image" content="https://inner.ink/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/15.png">
-<meta property="og:image" content="http://aboutme.ink/pqs/img/huanhu.gif">
-<meta property="og:updated_time" content="2019-04-22T12:48:45.032Z">
+<meta property="og:image" content="https://inner.ink/pqs/img/huanhu.gif">
+<meta property="og:updated_time" content="2019-05-02T07:48:16.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker+gogs+nginx配置Git服务自动部署Web应用">
 <meta name="twitter:description" content="如何部署一个git服务而且又可以自动部署web应用呢？ 1.docker 2.gogs 3.nginx  明白以上三者是什么，就可以开始搞事了！ 一、放通端口，阿里云腾讯云的需要到各自的官网开放1.查看firewall服务状态systemctl status firewalld2.查看firewall的状态firewall-cmd --state3.开启、重启、关闭firewall服务  开启">
@@ -440,8 +440,8 @@
 <li>10022 是参数三，表示gogs对外暴露的ssh端口，用于配置秘钥后下载和上传git代码</li>
 <li>80 是参数四，表示nginx的端口，ip直接可以访问nginx首页（80默认隐藏）</li>
 </ul>
-<p>以上四个参数自己调整也可以，新手建议默认按照我的配置就可以了<br>以下是完整运行截图<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/1.png" alt=""><br>4、打开浏览器访问ip:10080和ip:80<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/2.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/3.png" alt=""><br>如果出现这些页面说明成功了！<br><img src="http://aboutme.ink/pqs/img/huaji.gif" alt=""><br>5、配置gogs，打开页面ip:10080<br>数据库选SQLite3，域名写自己的服务器ip，ssh端口填参数三10022，勾选内置服务器，http端口填写参数二10080，应用url填写ip:10080，然后点立即安装<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/4.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/5.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/6.png" alt=""><br>点击立即安装，稍等一会会跳转登陆页面，如下<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/7.png" alt=""><br>6、然后注册一个账号并且登陆会成为管理员（第一个账号）<br>7、新建一个仓库，并且克隆到本地<br>8、点击仓库设置配置git钩子或者web钩子<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/8.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/9.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/16.png" alt=""><br>以上配置只需要修改UserName、repo和repoHttpUrl就行，然后点更新钩子设置<br>9、克隆你的仓库到本地并且添加一个index.txt文件并写入内容<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/10.png" alt=""><br>10、更新你的本地仓库后，推送到远程仓库<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/11.png" alt=""><br>如果会显示上图的信息，说明你的钩子设置成功，并且代码已经推送到了nginx服务器上<br>11、打开你的浏览器测试一下<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/12.png" alt=""><br>可以看到，已经可以访问了<br>12、再次更新你的本地仓库<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/13.png" alt=""><br>13、推送到远程仓库<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/14.png" alt=""><br>14、再次打开浏览器访问<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/15.png" alt=""></p>
-<h2 id="小南有话说"><a href="#小南有话说" class="headerlink" title="小南有话说"></a>小南有话说</h2><p>1.其实我利用的原理就是git本身有钩子的一个功能特点，结合docker下的gogs和nginx开发了一套容易理解又非常高效的web应用自动部署平台<br>2.gogs还支持webhooks的web钩子进行代码的部署，这边我就没有多做讲解了，如果你学会了git钩子部署，那么web钩子部署也不是难事<br><img src="http://aboutme.ink/pqs/img/huanhu.gif" alt=""></p>
+<p>以上四个参数自己调整也可以，新手建议默认按照我的配置就可以了<br>以下是完整运行截图<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/1.png" alt=""><br>4、打开浏览器访问ip:10080和ip:80<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/2.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/3.png" alt=""><br>如果出现这些页面说明成功了！<br><img src="https://inner.ink/pqs/img/huaji.gif" alt=""><br>5、配置gogs，打开页面ip:10080<br>数据库选SQLite3，域名写自己的服务器ip，ssh端口填参数三10022，勾选内置服务器，http端口填写参数二10080，应用url填写ip:10080，然后点立即安装<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/4.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/5.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/6.png" alt=""><br>点击立即安装，稍等一会会跳转登陆页面，如下<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/7.png" alt=""><br>6、然后注册一个账号并且登陆会成为管理员（第一个账号）<br>7、新建一个仓库，并且克隆到本地<br>8、点击仓库设置配置git钩子或者web钩子<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/8.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/9.png" alt=""><br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/16.png" alt=""><br>以上配置只需要修改UserName、repo和repoHttpUrl就行，然后点更新钩子设置<br>9、克隆你的仓库到本地并且添加一个index.txt文件并写入内容<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/10.png" alt=""><br>10、更新你的本地仓库后，推送到远程仓库<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/11.png" alt=""><br>如果会显示上图的信息，说明你的钩子设置成功，并且代码已经推送到了nginx服务器上<br>11、打开你的浏览器测试一下<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/12.png" alt=""><br>可以看到，已经可以访问了<br>12、再次更新你的本地仓库<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/13.png" alt=""><br>13、推送到远程仓库<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/14.png" alt=""><br>14、再次打开浏览器访问<br><img src="/2019/04/22/docker-gogs-nginx配置Git服务自动部署Web应用/15.png" alt=""></p>
+<h2 id="小南有话说"><a href="#小南有话说" class="headerlink" title="小南有话说"></a>小南有话说</h2><p>1.其实我利用的原理就是git本身有钩子的一个功能特点，结合docker下的gogs和nginx开发了一套容易理解又非常高效的web应用自动部署平台<br>2.gogs还支持webhooks的web钩子进行代码的部署，这边我就没有多做讲解了，如果你学会了git钩子部署，那么web钩子部署也不是难事<br><img src="https://inner.ink/pqs/img/huanhu.gif" alt=""></p>
 
       
     </div>
@@ -501,6 +501,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/02/Centos部署ngrok内网穿透服务器/" rel="prev" title="Centos部署ngrok内网穿透服务器">
+                Centos部署ngrok内网穿透服务器 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -581,7 +585,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -603,7 +607,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

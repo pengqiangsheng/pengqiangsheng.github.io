@@ -81,7 +81,7 @@
 <meta name="description" content="知与南的博客，分享决定技术的高低，学习拉开技术的差距">
 <meta property="og:type" content="website">
 <meta property="og:title" content="知与南_南风知我意,吹梦到西周">
-<meta property="og:url" content="https://inner.ink/tags/CentOs/index.html">
+<meta property="og:url" content="https://inner.ink/tags/Centos/index.html">
 <meta property="og:site_name" content="知与南_南风知我意,吹梦到西周">
 <meta property="og:description" content="知与南的博客，分享决定技术的高低，学习拉开技术的差距">
 <meta property="og:locale" content="zh-Hans">
@@ -117,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="https://inner.ink/tags/CentOs/"/>
+  <link rel="canonical" href="https://inner.ink/tags/Centos/"/>
 
 
 
 
 
-  <title>标签: CentOs | 知与南_南风知我意,吹梦到西周</title>
+  <title>标签: Centos | 知与南_南风知我意,吹梦到西周</title>
   
 
 
@@ -284,7 +284,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>CentOs<small>标签</small>
+        <h1>Centos<small>标签</small>
         </h1>
       </div>
 
@@ -296,37 +296,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/04/19/关于php执行shell命令的一些体会/" itemprop="url">
+            <a class="post-title-link" href="/2019/05/02/Centos部署ngrok内网穿透服务器/" itemprop="url">
               
-                <span itemprop="name">关于php执行shell命令的一些体会</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-19T18:21:29+08:00"
-              content="2019-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/19/Centos-cp-去掉覆盖提醒/" itemprop="url">
-              
-                <span itemprop="name">CentOs cp 去掉覆盖提醒</span>
+                <span itemprop="name">Centos部署ngrok内网穿透服务器</span>
               
             </a>
         
@@ -334,9 +306,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-19T10:14:50+08:00"
-              content="2019-04-19" >
-          04-19
+              datetime="2019-05-02T14:59:52+08:00"
+              content="2019-05-02" >
+          05-02
         </time>
       </div>
 
@@ -400,7 +372,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -422,7 +394,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -1197,6 +1169,29 @@
     let pv = parseInt(strPv) + 1
     let xmlhttp;
     if (window.XMLHttpRequest) {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.responseText == 'success') {
+              console.log('success')
+            }else {
+              console.log('fali')
+            }
+        }
+    }
+    xmlhttp.open("GET", "https://inner.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId , true);
+    xmlhttp.send();
+  }
+  </script>
+</body>
+
+</html>
+equest) {
         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
         xmlhttp = new XMLHttpRequest();
     } else {
