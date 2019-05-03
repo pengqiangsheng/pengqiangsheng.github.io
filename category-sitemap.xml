@@ -50,7 +50,14 @@
 
     <url>
         <loc>https://inner.ink/categories/game/</loc>
-        <lastmod>2019-05-02T14:24:28.702Z</lastmod>
+        <lastmod>2019-05-03T11:12:22.467Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://inner.ink/categories/travel/</loc>
+        <lastmod>2019-05-03T11:15:15.151Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
