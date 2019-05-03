@@ -1191,3 +1191,26 @@
 </body>
 
 </html>
+equest) {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.responseText == 'success') {
+              console.log('success')
+            }else {
+              console.log('fali')
+            }
+        }
+    }
+    xmlhttp.open("GET", "https://inner.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId , true);
+    xmlhttp.send();
+  }
+  </script>
+</body>
+
+</html>
