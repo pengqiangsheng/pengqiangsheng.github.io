@@ -3,6 +3,28 @@
 
 
     
+  <url>
+    <loc>https://inner.ink/2019/05/10/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9E%84%E5%BB%BA%E4%B8%80%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E6%B0%B8%E4%B9%85%E8%BF%90%E8%A1%8C%E7%BD%91%E7%AB%99/</loc>
+    <lastmod>2019-05-10T12:53:52.358Z</lastmod>
+    <data>
+        <display>
+        <title>使用树莓派构建一台服务器，永久运行网站</title>
+        <pubTime>2019-05-10T11:22:44.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>树莓派</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://inner.ink/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://inner.ink/2019/05/02/%E6%B7%B1%E6%B5%B7%E8%BF%B7%E8%88%AA%E8%81%94%E6%9C%BA%E6%95%99%E7%A8%8B/</loc>
@@ -218,9 +240,9 @@
         <title>用hexo和github搭建个人博客小站全攻略</title>
         <pubTime>2018-08-20T00:58:52.000Z</pubTime>
         
-        <tag>github</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>github</tag>
          
          
            
