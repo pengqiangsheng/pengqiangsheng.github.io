@@ -83,7 +83,7 @@
 <meta property="og:url" content="https://inner.ink/message/index.html">
 <meta property="og:site_name" content="知与南_南风知我意,吹梦到西周">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-24T01:50:15.249Z">
+<meta property="og:updated_time" content="2019-05-10T01:32:12.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知与南_南风知我意,吹梦到西周">
 
@@ -294,7 +294,10 @@
       <div class="post-body">
         
         
-          <div id="mymessage"></div>
+          
+<div id="mymessage"></div>
+
+
         
       </div>
       
@@ -424,6 +427,10 @@
                 Links
               </div>
               <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://i.youku.com/i/UMzYwMzA4ODcy" title="YouKu" target="_blank">YouKu</a>
+                  </li>
                 
                   <li class="links-of-blogroll-item">
                     <a href="https://www.fingerdancer.cn" title="指舞社" target="_blank">指舞社</a>
@@ -966,6 +973,11 @@
       }
     }
     id = href
+  }
+  if(id.indexOf('ink') > -1) {
+    console.log('this is ink page!')
+  }else {
+    console.log('this is netlify.com page!')
   }
   console.log(id)
   id = hex_md5(id)
