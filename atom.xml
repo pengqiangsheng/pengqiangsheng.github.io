@@ -319,9 +319,9 @@
       <category term="hexo" scheme="https://inner.ink/categories/hexo/"/>
     
     
-      <category term="hexo" scheme="https://inner.ink/tags/hexo/"/>
-    
       <category term="github" scheme="https://inner.ink/tags/github/"/>
+    
+      <category term="hexo" scheme="https://inner.ink/tags/hexo/"/>
     
   </entry>
   
