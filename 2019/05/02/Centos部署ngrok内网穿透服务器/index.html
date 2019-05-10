@@ -1211,22 +1211,33 @@
     id = href
   }
   if(id.indexOf('ink') > -1) {
-    console.log('this is ink page!')
+    id = hex_md5(id)
+    const gitalk = new Gitalk({
+      clientID: '871b33fddf76276d91aa',
+      clientSecret: '946e58b00919856b957a8b134b18e232b44af6a5',
+      repo: 'hexo',
+      owner: 'pengqiangsheng',
+      admin: ['pengqiangsheng'],
+      id: id,      // Ensure uniqueness and length less than 50
+      distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
   }else {
-    console.log('this is netlify.com page!')
+    id = hex_md5(id)
+    const gitalk = new Gitalk({
+      clientID: '7267b0f4df041dd7f88c',
+      clientSecret: 'fe5fb2e83345dcdc840773a377f3c6a488629abf',
+      repo: 'message',
+      owner: 'pengqiangsheng',
+      admin: ['pengqiangsheng'],
+      id: id,      // Ensure uniqueness and length less than 50
+      distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
   }
-  console.log(id)
-  id = hex_md5(id)
-  const gitalk = new Gitalk({
-    clientID: '871b33fddf76276d91aa',
-    clientSecret: '946e58b00919856b957a8b134b18e232b44af6a5',
-    repo: 'hexo',
-    owner: 'pengqiangsheng',
-    admin: ['pengqiangsheng'],
-    id: id,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: true  // Facebook-like distraction free mode
-  })
-  gitalk.render('gitalk-container')
+
+
+
   </script>
   <!-- live2d看板娘 -->
   <script type="text/javascript">
